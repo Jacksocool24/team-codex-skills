@@ -1,0 +1,4 @@
+interface:
+  display_name: "成品毛毯商品图套装 v1.1"
+  short_description: "按实际尺寸制作毛毯九图，保留印花并优化场景主次、整套一致性与局部返工"
+  default_prompt: "使用 $blanket-listing-images，根据我提供的参考图或文件夹，为50×60英寸成品毛毯逐款制作八张商品展示图和一张印花原图，检查后展示总览并打包保存。"

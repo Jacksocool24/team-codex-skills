@@ -1,0 +1,9 @@
+Use case: illustration-story / original textile print design.
+Create one original flat full-bleed print artwork for a flannel throw blanket.
+Theme and subjects: {theme_and_subjects}.
+Style and palette: {style_and_palette}.
+Physical size: {width_inches} by {height_inches} inches, width first.
+Exact artwork aspect ratio: {width_ratio}:{height_ratio}, portrait unless otherwise specified.
+Composition: one coherent complete print, recognizable main subject kept within the central 80 percent of width and height, secondary botanical or decorative elements extending to the edges. Use substantial contours and readable shapes suitable for short-pile flannel. Keep the design original and visually balanced. Do not copy a named commercial design.
+Output only the flat print artwork, with no blanket mockup, fabric folds, draped object, room background, model, gift packaging, measurement arrows, words, logo or watermark. Do not simulate coarse fleece texture in the printed artwork itself.
+Use the highest genuinely supported output resolution requested for this job. The requested physical size is not evidence of pixel resolution: actual downloaded pixels must be measured and checked against printer requirements separately. No factory-ready claim is implied by this prompt.
