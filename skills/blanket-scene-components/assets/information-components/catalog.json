@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "library_version": "1.0",
+  "canvas": [970, 600],
+  "components": [
+    {
+      "id": "collection-heading",
+      "name": "产品识别标题",
+      "purpose": "说明产品类别，或保留既有选款标题作为对照",
+      "xy": [40, 32], "max_width": 890, "role": "headline",
+      "variants": ["baseline", "product-name"],
+      "requires": "product-name uses a confirmed product_name fact; baseline only reuses the locked project's existing headline",
+      "available_modes": ["finished", "custom"]
+    },
+    {
+      "id": "verified-fact-line",
+      "name": "选款事实条",
+      "purpose": "保留原副标题或精简为已核实款数与尺寸数量",
+      "xy": [40, 96], "max_width": 890,
+      "variants": ["baseline", "counts"],
+      "roles": {"baseline": "body", "counts": "fact"},
+      "requires": "design_count and sizes_inches must match the product matrix; no inferred performance claims",
+      "available_modes": ["finished", "custom"]
+    },
+    {
+      "id": "product-labels",
+      "name": "款式定位标签",
+      "purpose": "沿用构图中各款的标签位置，准确关联实际款式",
+      "max_width": 170, "role": "label",
+      "position_source": "locked composition slots; never shift products to fit a label",
+      "available_modes": ["finished", "custom"]
+    },
+    {
+      "id": "size-line",
+      "name": "尺寸规格条",
+      "purpose": "按已确认记录显示全部尺寸及in单位，不给床型或年龄适用保证",
+      "xy": [40, 136], "max_width": 890, "role": "size",
+      "requires": "confirmed sizes_inches; optional, omit if it crowds the product or repeats another module",
+      "available_modes": ["finished", "custom"]
+    }
+  ]
+}

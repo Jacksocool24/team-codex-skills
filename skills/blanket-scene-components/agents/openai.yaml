@@ -1,0 +1,4 @@
+interface:
+  display_name: "毛毯场景部件制作 v2.2"
+  short_description: "分层复用背景、构图、风格和信息组件，诊断主次、局部调整并记录视觉验收"
+  default_prompt: "请使用 $blanket-scene-components，读取我提供的毛毯素材，按需要选择背景、构图和视觉风格；做风格试验时锁定产品与背景，仅调整字体配色和已确认的信息，交付970×600英文无品牌PNG，缺少实拍证据的卖点不补造。"

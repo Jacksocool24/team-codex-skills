@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "version": "1.0",
+  "module": "作图",
+  "category": "灵感素材检索",
+  "product": "毛毯、地毯、地垫等多品类商品",
+  "purpose": "Pinterest灵感检索、素材去重与视觉筛选，输出带来源的预览库并交接参考图生成",
+  "status": "active",
+  "inputs": ["产品名称", "主题元素与风格", "可选市场、数量和输出目录"],
+  "outputs": ["可筛选HTML素材库", "候选图片与来源清单", "元素分析及推荐理由", "选定素材与生成交接文件"],
+  "checks": ["来源和像素完整性", "精确去重与近似分组", "逐图视觉审阅", "发布时间与热度缺失标记", "仅交接已审核选图"],
+  "engine": "pinterest-dl; Codex session keyword/vision review; shared-image-runtime via product-reference-images",
+  "updated_at": "2026-10-25"
+}

@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "library_version": "1.0",
+  "canvas": [970, 600],
+  "coordinate_system": "final pixels; slot center, contain box, counterclockwise rotation in degrees; z ascending",
+  "background_policy": "Independent background input; the first comparison uses the same plain white background.",
+  "text": {
+    "headline": {"xy": [40, 32], "size": 44, "max_width": 890},
+    "subline": {"xy": [40, 96], "size": 28, "max_width": 890},
+    "label_y": 558,
+    "label_size": 28
+  },
+  "templates": [
+    {
+      "id": "shallow-fan-4",
+      "name": "浅弧扇形",
+      "mode": "local",
+      "supported_counts": [4],
+      "purpose": "四款系列氛围，弧线展开、轻叠放；不替代完整选款图",
+      "max_occlusion": 0.28,
+      "max_protected_occlusion": 0.01,
+      "slots": [
+        {"index": 0, "center": [170, 370], "box": [240, 300], "rotation": 12, "z": 0, "label_x": 170},
+        {"index": 1, "center": [380, 337], "box": [270, 330], "rotation": 4, "z": 2, "label_x": 380},
+        {"index": 2, "center": [590, 337], "box": [270, 330], "rotation": -4, "z": 3, "label_x": 590},
+        {"index": 3, "center": [800, 370], "box": [240, 300], "rotation": -12, "z": 1, "label_x": 800}
+      ],
+      "mobile_review": {"status": "pending", "width": 375},
+      "limitations": ["叠放可能遮边，必须逐款检查核心图案", "仅4款参数，不能自动扩展到10款", "平面陈列，不模拟真实弯折"],
+      "search_queries": ["fan arrangement product photography", "textile collection fan layout"]
+    },
+    {
+      "id": "hero-support-4",
+      "name": "一主多辅",
+      "mode": "local",
+      "supported_counts": [4],
+      "purpose": "一款重点展示，另三款完整呈现；主款由输入顺序明确指定",
+      "max_occlusion": 0,
+      "max_protected_occlusion": 0,
+      "slots": [
+        {"index": 0, "center": [225, 349], "box": [320, 384], "rotation": 0, "z": 0, "label_x": 225},
+        {"index": 1, "center": [500, 362], "box": [160, 206], "rotation": 0, "z": 1, "label_x": 500, "label_y": 480},
+        {"index": 2, "center": [680, 362], "box": [160, 206], "rotation": 0, "z": 2, "label_x": 680, "label_y": 480},
+        {"index": 3, "center": [860, 362], "box": [160, 206], "rotation": 0, "z": 3, "label_x": 860, "label_y": 480}
+      ],
+      "mobile_review": {"status": "pending", "width": 375},
+      "limitations": ["手机上辅款细节较小，复杂照片布局另用选款图", "展示缩放不代表不同商品尺寸"],
+      "search_queries": ["hero product with variations layout", "product collection editorial layout"]
+    },
+    {
+      "id": "aligned-flatlay-4",
+      "name": "整齐平铺",
+      "mode": "local",
+      "supported_counts": [4],
+      "purpose": "完整选款，四款等权、同尺度、无重叠",
+      "max_occlusion": 0,
+      "max_protected_occlusion": 0,
+      "slots": [
+        {"index": 0, "center": [145, 350], "box": [210, 340], "rotation": 0, "z": 0, "label_x": 145, "label_y": 498},
+        {"index": 1, "center": [372, 350], "box": [210, 340], "rotation": 0, "z": 1, "label_x": 372, "label_y": 498},
+        {"index": 2, "center": [598, 350], "box": [210, 340], "rotation": 0, "z": 2, "label_x": 598, "label_y": 498},
+        {"index": 3, "center": [825, 350], "box": [210, 340], "rotation": 0, "z": 3, "label_x": 825, "label_y": 498}
+      ],
+      "mobile_review": {"status": "pending", "width": 375},
+      "limitations": ["图案不遮挡但尺寸仍受画布限制", "10款必须重新分行设定并审核"],
+      "search_queries": ["textile collection flat lay", "fabric collection product photography"]
+    },
+    {
+      "id": "staggered-steps-4",
+      "name": "错落阶梯",
+      "mode": "local",
+      "supported_counts": [4],
+      "purpose": "通过规律高低变化形成节奏，保持每款完整",
+      "max_occlusion": 0,
+      "max_protected_occlusion": 0,
+      "slots": [
+        {"index": 0, "center": [145, 393], "box": [210, 300], "rotation": 0, "z": 0, "label_x": 145, "label_y": 540},
+        {"index": 1, "center": [372, 355], "box": [210, 300], "rotation": 0, "z": 1, "label_x": 372, "label_y": 502},
+        {"index": 2, "center": [598, 317], "box": [210, 300], "rotation": 0, "z": 2, "label_x": 598, "label_y": 464},
+        {"index": 3, "center": [825, 279], "box": [210, 300], "rotation": 0, "z": 3, "label_x": 825, "label_y": 426}
+      ],
+      "mobile_review": {"status": "pending", "width": 375},
+      "limitations": ["高低不暗示尺寸差异", "首批三版对照以外的补充构图"],
+      "search_queries": ["staggered product collection layout", "fabric swatch styling photography"]
+    },
+    {
+      "id": "scene-and-selection-4",
+      "name": "场景主图＋款式陈列",
+      "mode": "scene-local",
+      "supported_counts": [4],
+      "purpose": "左侧展示一款实际使用场景，右侧四款完整选项",
+      "scene_box": [40, 162, 520, 340],
+      "scene_fit": "contain",
+      "max_occlusion": 0,
+      "max_protected_occlusion": 0,
+      "slots": [
+        {"index": 0, "center": [660, 240], "box": [136, 155], "rotation": 0, "z": 0, "label_x": 660, "label_y": 321},
+        {"index": 1, "center": [838, 240], "box": [136, 155], "rotation": 0, "z": 1, "label_x": 838, "label_y": 321},
+        {"index": 2, "center": [660, 438], "box": [136, 155], "rotation": 0, "z": 2, "label_x": 660, "label_y": 519},
+        {"index": 3, "center": [838, 438], "box": [136, 155], "rotation": 0, "z": 3, "label_x": 838, "label_y": 519}
+      ],
+      "mobile_review": {"status": "requires_matching_scene_review", "width": 375},
+      "limitations": ["必须提供同款已审核无字场景，不自动使用无关沙发图", "场景contain不强裁产品", "未完成本轮实图验证"],
+      "search_queries": ["home textile lifestyle product collection layout"]
+    },
+    {
+      "id": "folded-stack-4",
+      "name": "折叠堆叠",
+      "mode": "scene-generation",
+      "supported_counts": [4],
+      "purpose": "展示配色与织物氛围，不作为完整图案选款页",
+      "product_zone": [160, 170, 650, 360],
+      "slots": [
+        {"index": 0, "center": [485, 443], "box": [560, 110], "rotation": 0, "z": 0, "role": "bottom folded textile"},
+        {"index": 1, "center": [490, 385], "box": [530, 110], "rotation": 0, "z": 1, "role": "second folded textile"},
+        {"index": 2, "center": [480, 327], "box": [500, 110], "rotation": 0, "z": 2, "role": "third folded textile"},
+        {"index": 3, "center": [485, 268], "box": [470, 110], "rotation": 0, "z": 3, "role": "top folded textile"}
+      ],
+      "occlusion_policy": "Folded edges may hide most print; each layer needs a recognizable color/print fragment. Reject mixed designs or merged layers. Never validate as full-pattern selection.",
+      "prompt": "Use the supplied product references as four separate printed flannel throws. Build a physically plausible four-layer folded stack in the specified product zone. Preserve each design's colors and visible identifiable motifs; no repeated or merged patterns. Short-pile flannel, thin bound edges, soft gravity and contact shadows. Do not invent sherpa, quilting, knit structure, packaging or a thickness claim. Leave the common upper text zone empty; no letters or logos. Do not flatten four product pictures into strips to simulate folding. If folded product references are absent, treat the result as a generated styling concept requiring material and design review.",
+      "mobile_review": {"status": "requires_generated_sample_review", "width": 375},
+      "limitations": ["仅构图与执行规则，尚无通过审核的折叠实图", "不能本地压扁图片伪造折叠", "无实拍不宣称厚度或真实材质表现"],
+      "search_queries": ["folded blanket product styling", "stacked textiles photography"]
+    }
+  ]
+}

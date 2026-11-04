@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>商品灵感素材库</title>
+<style>
+*{box-sizing:border-box}body{margin:0;color:#25272b;background:#f7f8fa;font:15px/1.6 system-ui,sans-serif;letter-spacing:0}
+header,nav,main{padding:20px 28px;max-width:1600px;margin:auto}header{border-bottom:1px solid #dadddf}h1{font-size:25px;margin:0}p{margin:6px 0}
+nav{display:flex;gap:12px;flex-wrap:wrap;align-items:center;position:sticky;top:0;background:#f7f8fa;z-index:1;border-bottom:1px solid #dadddf}
+input[type=search],select,button{font:inherit;padding:8px 12px;border:1px solid #b6bdc2;border-radius:5px;background:white;max-width:100%}button{background:#19684e;color:white;cursor:pointer}button:disabled{opacity:.5;cursor:default}
+main{display:grid;grid-template-columns:repeat(auto-fill,minmax(285px,1fr));gap:22px}article{min-width:0;background:white;border:1px solid #dadddf;border-radius:6px;overflow:hidden}article img{width:100%;height:310px;object-fit:contain;background:#eceef0}
+.details{padding:14px;overflow-wrap:anywhere}h2{font-size:16px;margin:0}a{color:#176b90}.muted{color:#5b6470;font-size:13px}.status{color:#19684e;font-weight:600}.reject{color:#a13536}.reason{margin-top:10px}label{cursor:pointer}input[type=checkbox]{width:18px;height:18px;vertical-align:middle;margin-right:7px}
+@media(max-width:600px){header,nav,main{padding:16px}main{grid-template-columns:minmax(0,1fr)}nav{position:static}h1{font-size:22px}}
+</style></head><body><header><h1>商品灵感素材库</h1><p id="brief"></p><p class="muted" id="summary"></p><p class="muted" id="errors"></p></header>
+<nav><input type="search" id="search" placeholder="搜索元素、配色、推荐理由" aria-label="搜索素材"><select id="filter" aria-label="筛选审核状态"><option value="all">全部候选</option><option value="keep">推荐</option><option value="pending">待审阅</option><option value="reject">淘汰</option></select><button id="export" disabled>导出选图</button><span id="selected">已选 0 张</span></nav><main id="grid"></main>
+<script type="application/json" id="manifest">__MANIFEST_JSON__</script>
+<script>
+const batch=JSON.parse(document.getElementById('manifest').textContent),chosen=new Set();
+const rows=batch.items.filter(r=>r.technical_status==='passed');
+const labels={keep:'推荐',reject:'淘汰',pending:'待审阅'};
+const text=(tag,value,cls)=>{const el=document.createElement(tag);el.textContent=value;if(cls)el.className=cls;return el};
+document.getElementById('brief').textContent=batch.plan.product+' · '+batch.plan.themes.join(' / ')+' · '+batch.plan.style;
+document.getElementById('summary').textContent='检索候选 '+batch.items.length+' 张 · 清晰度等技术检查通过 '+rows.length+' 张 · 推荐 '+rows.filter(r=>r.review?.decision==='keep').length+' 张 · 目标市场 '+batch.plan.market+' · 发布时间与热度未知';
+document.getElementById('errors').textContent=batch.errors.length?'采集提醒：'+batch.errors.map(e=>e.kind).join('，'):'';
+function selection(){document.getElementById('selected').textContent='已选 '+chosen.size+' 张';document.getElementById('export').disabled=!chosen.size;}
+function render(){const q=document.getElementById('search').value.toLowerCase(),f=document.getElementById('filter').value,grid=document.getElementById('grid');grid.replaceChildren();
+ for(const r of rows){const v=r.review||{},state=v.decision||'pending';if(f!=='all'&&f!==state)continue;if(q&&!JSON.stringify([r.caption,v]).toLowerCase().includes(q))continue;
+ const card=document.createElement('article'),link=document.createElement('a'),img=document.createElement('img');link.href=r.file;link.target='_blank';link.rel='noopener';img.src=r.file;img.alt=r.id;img.loading='lazy';link.append(img);card.append(link);
+ const box=document.createElement('div');box.className='details';const label=document.createElement('label'),check=document.createElement('input');check.type='checkbox';check.checked=chosen.has(r.id);check.disabled=state!=='keep';check.addEventListener('change',()=>{check.checked?chosen.add(r.id):chosen.delete(r.id);selection()});label.title=r.id;label.append(check,document.createTextNode('候选 '+String(batch.items.indexOf(r)+1).padStart(2,'0')));box.append(label,text('p',labels[state],state==='reject'?'status reject':'status'));
+ box.append(text('p',r.width+' × '+r.height+' · '+(r.cache_hit?'复用缓存':'本次下载'),'muted'));
+ const source=document.createElement('a');source.href=r.source_url;source.target='_blank';source.rel='noopener noreferrer';source.textContent='查看 Pinterest 来源';box.append(source);
+ box.append(text('p','发布时间：'+(r.source_published_at||'未知')+' · 热度：'+(r.metrics?JSON.stringify(r.metrics):'未知'),'muted'));
+ if(v.decision){box.append(text('p','元素：'+v.elements.join('、')),text('p','配色：'+v.palette),text('p','构图：'+v.composition),text('p',v.reason,'reason'));if(v.concerns.length)box.append(text('p','注意：'+v.concerns.join('；'),'muted'));}
+ if(r.near_duplicate_of?.length)box.append(text('p','近似候选：'+r.near_duplicate_of.join('，'),'muted'));card.append(box);grid.append(card);
+ }if(!grid.children.length)grid.append(text('p','没有匹配的素材。'));}
+document.getElementById('search').addEventListener('input',render);document.getElementById('filter').addEventListener('change',render);
+document.getElementById('export').addEventListener('click',()=>{const blob=new Blob([JSON.stringify({batch_id:batch.batch_id,ids:[...chosen]},null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='selection.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)});render();
+</script></body></html>

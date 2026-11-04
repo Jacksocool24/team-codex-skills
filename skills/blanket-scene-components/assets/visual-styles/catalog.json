@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "library_version": "1.0",
+  "canvas": [970, 600],
+  "scope": "Typography and information overlays only; never recolor background or product pixels.",
+  "font_policy": "Use installed Windows fonts for local raster output. Do not redistribute font files; verify separate rights before moving fonts to cloud or another host.",
+  "profiles": [
+    {
+      "id": "clear-home",
+      "name": "清爽家居",
+      "purpose": "复杂印花优先，文字简洁清晰、以无衬线层级辅助选款",
+      "headline": {"font": "segoeuib.ttf", "size": 44, "color": "#24343a"},
+      "body": {"font": "segoeui.ttf", "size": 28, "color": "#53616a"},
+      "fact": {"font": "seguisb.ttf", "size": 28, "color": "#315d50"},
+      "label": {"font": "seguisb.ttf", "size": 28, "color": "#24343a"},
+      "size": {"font": "segoeui.ttf", "size": 24, "color": "#53616a"},
+      "minimum_sampled_contrast": 4.5,
+      "review_scope": "Each actual background and 375px export requires review."
+    },
+    {
+      "id": "editorial-home",
+      "name": "家居编辑风",
+      "purpose": "衬线标题配简洁说明，建立家居画册气质；不改变印花及背景颜色",
+      "headline": {"font": "georgiab.ttf", "size": 42, "color": "#263d36"},
+      "body": {"font": "segoeui.ttf", "size": 28, "color": "#58665f"},
+      "fact": {"font": "seguisb.ttf", "size": 28, "color": "#40634f"},
+      "label": {"font": "segoeui.ttf", "size": 28, "color": "#263d36"},
+      "size": {"font": "segoeui.ttf", "size": 24, "color": "#58665f"},
+      "minimum_sampled_contrast": 4.5,
+      "review_scope": "Serif titles must remain legible at 375px; use short headings."
+    }
+  ]
+}

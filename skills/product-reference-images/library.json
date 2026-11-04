@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "version": "1.1",
+  "module": "作图",
+  "category": "商品参考图生成",
+  "product": "多品类商品",
+  "purpose": "按产品主题生成视觉参考图，结合Impeccable适配方法检查焦点、配色与画面完整性",
+  "status": "active",
+  "inputs": ["产品名称或主题元素", "可选参考图或参考图文件夹", "可选数量、尺寸、配色和风格"],
+  "outputs": ["PNG参考图", "预览页", "提示词与参数记录", "生成检查报告"],
+  "checks": ["主题元素覆盖", "同批次风格一致", "主体完整与无水印", "PNG像素尺寸和文件完整性", "焦点与疏密、指定配色、单幅要求及375px主题识别；程序与目视分开记录"],
+  "engine": "shared-image-runtime",
+  "design_method": "impeccable-raster-v1.0",
+  "updated_at": "2026-10-31"
+}

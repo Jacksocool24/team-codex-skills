@@ -1,0 +1,4 @@
+interface:
+  display_name: "商品图换景与画面替换 v1.1"
+  short_description: "保留底座支架替换画稿或背景，优化可编辑区域的构图并核对硬件与画面边界"
+  default_prompt: "请使用 $product-image-restyle，读取指定文件夹中的易拉宝原图，替换广告画面或背景，保留原有底座与支架；先制作一个代表样张并检查保真。"
